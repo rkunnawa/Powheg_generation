@@ -1,0 +1,181 @@
+<LesHouchesEvents version="1.0">
+<!--
+file generated with POWHEG-BOX version 1.0
+Input file powheg.input contained:
+numevts 10        ! number of events to be generated
+ih1  1               ! hadron 1 (1 for protons, -1 for antiprotons)
+ih2  1               ! hadron 2 (1 for protons, -1 for antiprotons)
+ebeam1 2510d0        ! energy of beam 1
+ebeam2 2510d0        ! energy of beam 2
+ 
+bornktmin 50d0       ! (default 0d0) Generation cut: minimum kt in underlying Born
+#bornsuppfact 100d0  ! (default 0d0) Mass parameter for Born suppression factor.
+                     ! If < 0 suppfact = 1.
+bornktmax 80d0
+ 
+! To be set only if using internal (mlm) pdfs
+! 131 cteq6m
+!ndns1 131            ! pdf set for hadron 1 (mlm numbering)
+!ndns2 131            ! pdf set for hadron 2 (mlm numbering)
+ 
+! To be set only if using LHA pdfs
+! 10050 cteq6m
+lhans1  11000      ! pdf set for hadron 1 (LHA numbering)
+lhans2  11000      ! pdf set for hadron 2 (LHA numbering)	
+ 
+! To be set only if using different pdf sets for the two incoming hadrons
+#QCDLambda5  0.25    ! for not equal pdf sets
+ 
+#renscfact  1d0      ! (default 1d0) ren scale factor: muren  = muref * renscfact
+#facscfact  1d0      ! (default 1d0) fac scale factor: mufact = muref * facscfact
+ 
+! Parameters to allow or not the use of stored data
+use-old-grid    1    ! If 1 use old grid if file pwggrids.dat is present (<> 1 regenerate)
+use-old-ubound  1    ! If 1 use norm of upper bounding function stored
+                     ! in pwgubound.dat, if present; <> 1 regenerate
+ 
+! A typical call uses 1/1400 seconds (1400 calls per second)
+ncall1 20000         ! No. calls for the construction of the importance sampling grid
+itmx1 5              ! No. iterations for grid: total 100000 calls ~ 70 seconds
+ncall2 20000         ! No. calls for the computation of the upper bounding
+                     ! envelope for the generation of radiation
+itmx2 5              ! No. iterations for the above
+ 
+! Notice: the total number of calls is ncall2*itmx2*foldcsi*foldy*foldphi
+! these folding numbers yield a negative fraction of 0.5% with bornktmin=10 GeV.
+! With these settings: ncall2*itmx2*foldcsi*foldy*foldphi=5M, 60 minutes
+foldcsi 5            ! No. folds on csi integration
+foldy   5            ! No. folds on  y  integration
+foldphi 2            ! No. folds on phi integration
+ 
+nubound 500000       ! No. calls to set up the upper bounding norms for radiation.
+                     ! This is performed using only the Born cross section (fast)
+ 
+! OPTIONAL PARAMETERS
+ 
+withnegweights 1     ! (default 0). If 1 use negative weights.
+#bornonly 1          ! (default 0). If 1 compute underlying Born using LO
+                     ! cross section only.
+ 
+#ptsqmin    0.8      ! (default 0.8 GeV) minimum pt for generation of radiation
+#charmthr   1.5      ! (default 1.5 GeV) charm treshold for gluon splitting
+#bottomthr  5.0      ! (default 5.0 GeV) bottom treshold for gluon splitting
+#testplots  1        ! (default 0, do not) do NLO and PWHG distributions
+#charmthrpdf  1.5    ! (default 1.5 GeV) pdf charm treshold
+#bottomthrpdf 5.0    ! (default 5.0 GeV) pdf bottom treshold
+ 
+#xupbound 2d0        ! increase upper bound for radiation generation
+ 
+#iseed    5421       ! Start the random number generator with seed iseed
+#rand1     0         ! skipping  rand2*100000000+rand1 numbers (see RM48
+#rand2     0         ! short writeup in CERNLIB).
+#manyseeds 1         ! Used to perform multiple runs with different random
+                     ! seeds in the same directory.
+                     ! If set to 1, the program asks for an integer j;
+                     ! The file pwgseeds.dat at line j is read, and the
+                     ! integer at line j is used to initialize the random
+                     ! sequence for the generation of the event.
+                     ! The event file is called pwgevents-'j'.lhe
+ 
+doublefsr 1          ! Default 0; if 1 use new mechanism to generate regions
+                     ! such that the emitted harder than the
+                     ! emitter in FSR is suppressed. If doublefsr=0 this is
+                     ! only the case for emitted gluons (old behaviour). If
+                     ! 1 it is also applied to emitted quarks.
+                     ! If set, it strongly reduces spikes on showered output.
+ 
+ 
+ 
+#par_diexp 4         ! default is 2. With 4 there is a stronger separation
+#par_dijexp 4        ! of regions, it may help to reduce spikes when generating
+#par_2gsupp 4        ! weighted events.
+End of powheg.input content
+PDF package: lha
+ Random number generator initialized with:     54217137      14832209             0
+-->
+<init>
+     2212     2212  2.51000E+03  2.51000E+03     -1     -1     -1     -1     -4      1
+  5.08178E+06  8.71681E+03  1.00000E+00  10001
+</init>
+<event>
+      5  10001  5.08313E+06  9.16394E+00 -1.00000E+00  2.00240E-01
+      21    -1     0     0   511   514  0.000000000E+00  0.000000000E+00  6.100833073E+01  6.100833073E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   512   513  0.000000000E+00  0.000000000E+00 -1.028615453E+02  1.028615453E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      -3     1     1     2     0   513  4.518456090E+01 -3.506109330E+01 -3.863848105E+01  6.902251101E+01  5.000000000E-01  0.00000E+00  9.000E+00
+       3     1     1     2   511     0 -4.203835991E+01  4.366777651E+01 -2.920780151E+01  6.728628448E+01  5.000000000E-01  0.00000E+00  9.000E+00
+      21     1     1     2   512   514 -3.146200994E+00 -8.606683209E+00  2.599306800E+01  2.756108054E+01  5.840038640E-07  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  9.06766E+00 -1.00000E+00  2.00798E-01
+       3    -1     0     0   515     0  0.000000000E+00  0.000000000E+00  1.248369188E+02  1.248369188E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      -1    -1     0     0     0   515  0.000000000E+00  0.000000000E+00 -1.935834436E+02  1.935834436E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      -1     1     1     2     0   512 -4.268824979E+01  3.179210325E+01 -1.818694082E+02  1.894983247E+02  3.300000131E-01  0.00000E+00  9.000E+00
+       3     1     1     2   511     0  3.281125119E+01 -3.231644417E+01  1.087636014E+02  1.181130889E+02  5.000000000E-01  0.00000E+00  9.000E+00
+      21     1     1     2   512   511  9.876998602E+00  5.243409218E-01  4.359282048E+00  1.080894883E+01  1.685873940E-07  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  5.07609E+01 -1.00000E+00  1.38700E-01
+      21    -1     0     0   513   511  0.000000000E+00  0.000000000E+00  3.305045381E+01  3.305045381E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   512   514  0.000000000E+00  0.000000000E+00 -2.287415591E+02  2.287415591E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   513   514  4.348881380E+01 -4.809794876E+01 -2.351983774E+01  6.897733228E+01  1.815741803E-06  0.00000E+00  9.000E+00
+      21     1     1     2   515   511 -5.835229592E+00  2.951250836E+01 -1.294973960E+02  1.329459049E+02  1.907348633E-06  0.00000E+00  9.000E+00
+      21     1     1     2   512   515 -3.765358421E+01  1.858544040E+01 -4.267387161E+01  5.986877581E+01  1.430511475E-06  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  2.81811E+01 -1.00000E+00  1.54948E-01
+      21    -1     0     0   511   514  0.000000000E+00  0.000000000E+00  2.227989109E+02  2.227989109E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   512   516  0.000000000E+00  0.000000000E+00 -7.091440823E+01  7.091440823E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   512   517 -4.047657642E+01 -1.858913877E+01 -4.787685075E+01  6.539191201E+01  1.168007728E-06  0.00000E+00  9.000E+00
+      21     1     1     2   517   514  6.731932619E+01  1.000756137E+01  7.880821136E+01  1.041286567E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   511   516 -2.684274977E+01  8.581577393E+00  1.209531421E+02  1.241927504E+02  1.907348633E-06  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  3.06898E+01 -1.00000E+00  1.52354E-01
+      21    -1     0     0   513   516  0.000000000E+00  0.000000000E+00  1.267601639E+01  1.267601639E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   515   513  0.000000000E+00  0.000000000E+00 -5.557118726E+02  5.557118726E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   515   512  5.243750372E+01  4.462603609E+01 -4.275982589E+02  4.331067373E+02  9.344061824E-06  0.00000E+00  9.000E+00
+      21     1     1     2   512   514 -5.218872622E+00 -1.139110832E+01 -1.638132630E+01  2.062381710E+01  7.539457465E-07  0.00000E+00  9.000E+00
+      21     1     1     2   514   516 -4.721863110E+01 -3.323492778E+01 -9.905627104E+01  1.146573346E+02  2.697398305E-06  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  6.10198E+01 -1.00000E+00  1.34311E-01
+      21    -1     0     0   514   512  0.000000000E+00  0.000000000E+00  2.312389100E+02  2.312389100E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   511   514  0.000000000E+00  0.000000000E+00 -2.190082383E+02  2.190082383E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      -3     1     1     2     0   515 -9.487335410E+01  2.276931530E+01 -6.001200292E+01  1.145473070E+02  5.000000000E-01  0.00000E+00  9.000E+00
+       3     1     1     2   511     0  4.697771157E+01  1.503791774E+01 -1.222674122E+02  1.318431433E+02  5.000000000E-01  0.00000E+00  9.000E+00
+      21     1     1     2   515   512  4.789564253E+01 -3.780723304E+01  1.945100869E+02  2.038566980E+02  2.697398305E-06  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  3.75564E+01 -1.00000E+00  1.46556E-01
+       2    -1     0     0   511     0  0.000000000E+00  0.000000000E+00  2.658511817E+02  2.658511817E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   513   514  0.000000000E+00  0.000000000E+00 -1.892625777E+01  1.892625777E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   511   516 -3.230269333E+01 -5.977703438E+00  3.166739718E+01  4.562916807E+01  6.743495762E-07  0.00000E+00  9.000E+00
+       2     1     1     2   513     0  4.561504269E+01 -1.586852738E+01  2.065541451E+02  2.121255902E+02  3.300000131E-01  0.00000E+00  9.000E+00
+      21     1     1     2   516   514 -1.331234936E+01  2.184623082E+01  8.703381719E+00  2.702268121E+01  1.685873940E-07  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  2.92067E+01 -1.00000E+00  1.53850E-01
+       2    -1     0     0   511     0  0.000000000E+00  0.000000000E+00  5.246919556E+02  5.246919556E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   515   511  0.000000000E+00  0.000000000E+00 -5.648621490E+00  5.648621490E+00  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   515   512  3.813202398E+01 -1.747653641E+01  1.928057647E+02  1.973158470E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   512   513 -4.341372125E+01  2.355893602E+01  1.826497757E+02  1.892107693E+02  2.697398305E-06  0.00000E+00  9.000E+00
+       2     1     1     2   513     0  5.281697272E+00 -6.082399610E+00  1.435877937E+02  1.438139608E+02  3.300000131E-01  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  2.58264E+01 -1.00000E+00  1.57697E-01
+      21    -1     0     0   513   511  0.000000000E+00  0.000000000E+00  5.698336139E+02  5.698336139E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      -4    -1     0     0     0   514  0.000000000E+00  0.000000000E+00 -1.563714978E+01  1.563714978E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      -4     1     1     2     0   515 -7.521183451E+01  7.419048975E+00  2.585039839E+02  2.693295788E+02  1.500000000E+00  0.00000E+00  9.000E+00
+      21     1     1     2   513   514  5.116632864E+01  1.999778208E+00  5.932596834E+01  7.836812374E+01  1.784161275E-06  0.00000E+00  9.000E+00
+      21     1     1     2   515   511  2.404550587E+01 -9.418827183E+00  2.363665118E+02  2.377730611E+02  3.814697266E-06  0.00000E+00  9.000E+00
+</event>
+<event>
+      5  10001  5.08313E+06  1.61870E+01 -1.00000E+00  1.74320E-01
+      -1    -1     0     0     0   511  0.000000000E+00  0.000000000E+00  1.592326553E+02  1.592326553E+02  0.000000000E+00  0.00000E+00  9.000E+00
+      21    -1     0     0   511   513  0.000000000E+00  0.000000000E+00 -9.322964316E+01  9.322964316E+01  0.000000000E+00  0.00000E+00  9.000E+00
+      -1     1     1     2     0   514  2.410968365E+01 -5.051005379E+01  1.424916661E+02  1.530899284E+02  3.300000131E-01  0.00000E+00  9.000E+00
+      21     1     1     2   514   512 -2.961948303E+01  3.528968870E+01 -4.751857502E+01  6.618678778E+01  1.507891493E-06  0.00000E+00  9.000E+00
+      21     1     1     2   512   513  5.509799383E+00  1.522036509E+01 -2.897007887E+01  3.318558230E+01  4.768371582E-07  0.00000E+00  9.000E+00
+</event>
+</LesHouchesEvents>
+ #Random number generator exit values:     54217137      14987070             0
